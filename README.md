@@ -11,3 +11,5 @@ Install the cobra generator with the command go install github.com/LIOU2021/gin-
 - create env
 - create controller
 - create middleware
+- serve start/stop
+- test create other go docker, and go install, can success work cli?

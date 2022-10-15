@@ -31,10 +31,7 @@ to quickly create a Cobra application.`,
 				log.Fatal("not support second or more args", args)
 			}
 
-			create.Match(args[0])
-
-			fmt.Println("args : ", args)
-			fmt.Println("file name is : ", fileName)
+			create.Match(args[0], fileName)
 			fmt.Println("create called")
 		},
 	}
