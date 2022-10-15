@@ -5,7 +5,9 @@ package cmd
 
 import (
 	"fmt"
+	"log"
 
+	"github.com/LIOU2021/gin-layout-cli/create"
 	"github.com/spf13/cobra"
 )
 
@@ -24,6 +26,13 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 		Run: func(cmd *cobra.Command, args []string) {
+
+			if len(args) >= 2 {
+				log.Fatal("not support second or more args", args)
+			}
+
+			create.Match(args[0])
+
 			fmt.Println("args : ", args)
 			fmt.Println("file name is : ", fileName)
 			fmt.Println("create called")
