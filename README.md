@@ -6,3 +6,8 @@ Install the cobra generator with the command go install github.com/LIOU2021/gin-
 
 # ref
 - https://github.com/spf13/cobra/blob/main/user_guide.md
+
+# todo list
+- create env
+- create controller
+- create middleware

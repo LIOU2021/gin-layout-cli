@@ -34,7 +34,7 @@ to quickly create a Cobra application.`,
 func init() {
 	rootCmd.AddCommand(createCmd)
 
-	createCmd.Flags().StringVarP(&fileName, "name", "n", "", "name")
+	createCmd.Flags().StringVarP(&fileName, "name", "n", "", "file name")
 	createCmd.MarkFlagRequired("name")
 
 }
