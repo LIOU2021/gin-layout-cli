@@ -11,7 +11,6 @@ Install the gin-layout generator with the command go install github.com/LIOU2021
 - https://github.com/spf13/cobra/blob/main/user_guide.md
 
 # todo list
-- create env
 - create controller
 - create middleware
 - serve start/stop

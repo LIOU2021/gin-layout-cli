@@ -56,10 +56,14 @@ func envContent(fileName string) string {
 
 	content := `package env
 
-type %s struct {
+type %[1]s struct {
 }
 
-var %sSetting = &%s{}`
+var %[1]sSetting = &%[1]s{}
 
-	return fmt.Sprintf(content, fileName, fileName, fileName)
+func init() {
+	EnvSlice = append(EnvSlice, %[1]sSetting)
+}`
+
+	return fmt.Sprintf(content, fileName)
 }
