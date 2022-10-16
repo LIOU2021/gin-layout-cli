@@ -3,6 +3,7 @@ package create
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/LIOU2021/gin-layout-cli/helpers"
 )
@@ -25,9 +26,25 @@ func createEnv(fileName string) {
 		log.Fatal("./env not exists !")
 	}
 
-	if helpers.OsExists("./env/" + fileName) {
-		log.Fatal("./env/" + fileName + " already exists !")
+	fullFileName := "./env/" + fileName
+
+	if helpers.OsExists(fullFileName) {
+		log.Fatal(fullFileName + " already exists !")
 	}
 
-	fmt.Println("create file")
+	f, err := os.Create(fullFileName)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.Close()
+
+	_, err2 := f.WriteString("old falcon\n")
+
+	if err2 != nil {
+		log.Fatal(err2)
+	}
+
+	fmt.Println("done")
 }
