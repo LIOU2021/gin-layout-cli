@@ -25,3 +25,12 @@ func Match(fileType string, fileName string) {
 	}
 
 }
+
+func GetAllType() []string {
+	var list []string
+	for _, element := range createCli {
+		list = append(list, element.name)
+
+	}
+	return list
+}

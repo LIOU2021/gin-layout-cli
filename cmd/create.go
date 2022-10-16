@@ -4,33 +4,29 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/LIOU2021/gin-layout-cli/create"
 	"github.com/spf13/cobra"
 )
 
-// createCmd represents the create command
 var (
-	// Used for flags.
-	fileName string
+	fileName    string
+	supportType bool
 
 	createCmd = &cobra.Command{
 		Use:   "create [file type]",
 		Short: "create some file",
-		Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+		Long:  `support file type : env, helper ... `,
 		Run: func(cmd *cobra.Command, args []string) {
+			switch supportType {
+			case true:
+				supportProcess()
+			case false:
+				createProcess(cmd, args)
 
-			if len(args) >= 2 {
-				log.Fatal("not support second or more args", args)
 			}
-
-			create.Match(args[0], fileName)
 		},
 	}
 )
@@ -39,6 +35,27 @@ func init() {
 	rootCmd.AddCommand(createCmd)
 
 	createCmd.Flags().StringVarP(&fileName, "name", "n", "", "file name")
-	createCmd.MarkFlagRequired("name")
+	createCmd.Flags().BoolVarP(&supportType, "support", "s", false, "get support file type list")
+	// createCmd.MarkFlagRequired("name")
 
+}
+
+func createProcess(cmd *cobra.Command, args []string) {
+	if len(args) >= 2 {
+		log.Fatal("not support second or more args", args)
+	}
+
+	if len(args) == 0 {
+		log.Fatal("lose command [file type]")
+	}
+
+	if fileName == "" {
+		log.Fatal("lose '-n {fileName}'")
+	}
+
+	create.Match(args[0], fileName)
+}
+
+func supportProcess() {
+	fmt.Printf("support : %v\n", create.GetAllType())
 }
