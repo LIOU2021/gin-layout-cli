@@ -9,25 +9,26 @@ import (
 	"github.com/LIOU2021/gin-layout-cli/helpers"
 )
 
-var env = &create{
-	name: "env",
+var helper = &create{
+	name: "helper",
 	run: func(fileName string) {
-		createEnv(fileName)
+
+		createHelper(fileName)
 	},
 }
 
 func init() {
-	createCli = append(createCli, *env)
+	createCli = append(createCli, *helper)
 }
 
-func createEnv(fileName string) {
+func createHelper(fileName string) {
 	originFileName := fileName
 	fileName = fileName + ".go"
-	if !helpers.OsExists("./env") {
-		log.Fatal("./env not exists !")
+	if !helpers.OsExists("./helpers") {
+		log.Fatal("./helpers not exists !")
 	}
 
-	fullFileName := "./env/" + fileName
+	fullFileName := "./helpers/" + fileName
 
 	if helpers.OsExists(fullFileName) {
 		log.Fatal(fullFileName + " already exists !")
@@ -41,7 +42,7 @@ func createEnv(fileName string) {
 
 	defer f.Close()
 
-	_, err2 := f.WriteString(envContent(originFileName))
+	_, err2 := f.WriteString(helperContent(originFileName))
 
 	if err2 != nil {
 		log.Fatal(err2)
@@ -50,18 +51,12 @@ func createEnv(fileName string) {
 	fmt.Println("done")
 }
 
-func envContent(fileName string) string {
+func helperContent(fileName string) string {
 	fileName = strings.ToUpper(fileName[0:1]) + fileName[1:]
 
-	content := `package env
+	content := `package helpers
 
-type %[1]s struct {
-}
-
-var %[1]sSetting = &%[1]s{}
-
-func init() {
-	EnvSlice = append(EnvSlice, %[1]sSetting)
+func %[1]s()  {
 }`
 
 	return fmt.Sprintf(content, fileName)

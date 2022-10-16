@@ -6,6 +6,7 @@ Install the gin-layout generator with the command go install github.com/LIOU2021
 
 # Usage
 - gin-layout-cli create env -n database
+- gin-layout-cli create helper -n printMyTest
 - gin-layout-cli create controller -n userController
 # ref
 - https://github.com/spf13/cobra/blob/main/user_guide.md
