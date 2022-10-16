@@ -4,7 +4,6 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/LIOU2021/gin-layout-cli/create"
@@ -32,7 +31,6 @@ to quickly create a Cobra application.`,
 			}
 
 			create.Match(args[0], fileName)
-			fmt.Println("create called")
 		},
 	}
 )
