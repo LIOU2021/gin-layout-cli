@@ -28,12 +28,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 	
-type %[2]sController struct{}
+type %[2]s struct{}
 	
-var %[1]sController = &%[2]sController{}
+var %[1]s = &%[2]s{}
 	
-func (controller *%[2]sController) Index(c *gin.Context) {
-	c.JSON(http.StatusOK, "%[2]sController @Index !")
+func (controller *%[2]s) Index(c *gin.Context) {
+	c.JSON(http.StatusOK, "%[2]s @Index !")
 }
 	`
 
