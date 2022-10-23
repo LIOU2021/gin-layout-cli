@@ -17,9 +17,9 @@ make build
 - gin-layout-cli create env -n database
 - gin-layout-cli create helper -n printMyTest
 - gin-layout-cli create controller -n userController
+- gin-layout-cli create middleware -n testMiddleware
 # ref
 - https://github.com/spf13/cobra/blob/main/user_guide.md
 
 # todo list
-- create middleware
 - serve start/stop
