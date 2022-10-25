@@ -2,6 +2,8 @@ package server
 
 import (
 	"log"
+	"os"
+	"os/exec"
 )
 
 type runInterface func()
@@ -36,4 +38,17 @@ func GetAllCommand() []string {
 
 	}
 	return list
+}
+
+func execC(cli string) {
+	cmd := exec.Command("/bin/bash", "-c", cli)
+
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err := cmd.Run()
+	if err != nil {
+		log.Fatalf("failed to call cmd.Run(): %v", err)
+	}
 }
