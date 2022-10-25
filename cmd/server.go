@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/LIOU2021/gin-layout-cli/server"
 	"github.com/spf13/cobra"
 )
 
@@ -17,7 +18,13 @@ var (
 		Short: "server stop/start/restart",
 		Long:  `using for gin-layout server server control`,
 		Run: func(cmd *cobra.Command, args []string) {
-			serverProcess(cmd, args)
+			switch supportType {
+			case true:
+				supportServerProcess()
+			case false:
+				serverProcess(cmd, args)
+			}
+
 			fmt.Println("server called")
 		},
 	}
@@ -37,4 +44,10 @@ func serverProcess(cmd *cobra.Command, args []string) {
 	if ln >= 2 {
 		log.Fatalln("too many command")
 	}
+
+	server.Match(args[0])
+}
+
+func supportServerProcess() {
+	fmt.Printf("support : %v\n", server.GetAllCommand())
 }
