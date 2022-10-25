@@ -12,6 +12,11 @@ cd gin-layout-cli
 make build
 ```
 
+# system log 
+```
+/var/log/gin.log
+```
+
 # Usage Cli
 ## create
 - gin-layout-cli create -s
@@ -24,9 +29,5 @@ make build
 - gin-layout-cli server stop
 - gin-layout-cli server start
 - gin-layout-cli server status
-- gin-layout-cli server restart
 # ref
 - https://github.com/spf13/cobra/blob/main/user_guide.md
-
-# todo list
-- serve start/status/restart

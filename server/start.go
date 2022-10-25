@@ -8,8 +8,7 @@ var start = &server{
 	name: "start",
 	run: func() {
 		fmt.Println("server start")
-
-		execC("nohup gin-layout &> /dev/null  &")
+		execC("nohup gin-layout &>> /var/log/gin.log  &")
 	},
 }
 
