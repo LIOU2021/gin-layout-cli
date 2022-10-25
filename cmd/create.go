@@ -12,9 +12,6 @@ import (
 )
 
 var (
-	fileName    string
-	supportType bool
-
 	createCmd = &cobra.Command{
 		Use:   "create [file type]",
 		Short: "create some file",

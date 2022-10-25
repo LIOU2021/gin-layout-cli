@@ -11,15 +11,17 @@ import (
 )
 
 // serverCmd represents the server command
-var serverCmd = &cobra.Command{
-	Use:   "server [command]",
-	Short: "server stop/start/restart",
-	Long:  `using for gin-layout server server control`,
-	Run: func(cmd *cobra.Command, args []string) {
-		serverProcess(cmd, args)
-		fmt.Println("server called")
-	},
-}
+var (
+	serverCmd = &cobra.Command{
+		Use:   "server [command]",
+		Short: "server stop/start/restart",
+		Long:  `using for gin-layout server server control`,
+		Run: func(cmd *cobra.Command, args []string) {
+			serverProcess(cmd, args)
+			fmt.Println("server called")
+		},
+	}
+)
 
 func init() {
 	rootCmd.AddCommand(serverCmd)

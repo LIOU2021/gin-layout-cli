@@ -9,6 +9,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// custom variable
+var (
+	fileName    string
+	supportType bool
+)
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gin-layout-cli",
