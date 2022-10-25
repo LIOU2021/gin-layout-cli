@@ -11,7 +11,6 @@ import (
 
 // custom variable
 var (
-	fileName    string
 	supportType bool
 )
 
@@ -49,4 +48,6 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	rootCmd.PersistentFlags().BoolVarP(&supportType, "support", "s", false, "get support file type list")
 }

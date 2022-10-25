@@ -12,6 +12,7 @@ import (
 )
 
 var (
+	fileName  string
 	createCmd = &cobra.Command{
 		Use:   "create [file type]",
 		Short: "create some file",
@@ -32,7 +33,6 @@ func init() {
 	rootCmd.AddCommand(createCmd)
 
 	createCmd.Flags().StringVarP(&fileName, "name", "n", "", "file name")
-	createCmd.Flags().BoolVarP(&supportType, "support", "s", false, "get support file type list")
 	// createCmd.MarkFlagRequired("name")
 
 }
