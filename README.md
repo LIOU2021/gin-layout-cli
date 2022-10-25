@@ -28,4 +28,4 @@ make build
 - https://github.com/spf13/cobra/blob/main/user_guide.md
 
 # todo list
-- serve stop/start/restart
+- serve start/restart

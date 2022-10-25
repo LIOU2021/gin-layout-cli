@@ -7,7 +7,7 @@ import (
 var stop = &server{
 	name: "stop",
 	run: func() {
-		fmt.Println("run server stop")
+		fmt.Println("server stop")
 
 		execC("pkill gin-layout")
 		execC("ps -aux | grep gin-layout")

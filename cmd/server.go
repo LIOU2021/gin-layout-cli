@@ -24,8 +24,6 @@ var (
 			case false:
 				serverProcess(cmd, args)
 			}
-
-			fmt.Println("server called")
 		},
 	}
 )
