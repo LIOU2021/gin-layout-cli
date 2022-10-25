@@ -20,7 +20,7 @@ var (
 		Run: func(cmd *cobra.Command, args []string) {
 			switch supportType {
 			case true:
-				supportProcess()
+				supportCreateProcess()
 			case false:
 				createProcess(cmd, args)
 
@@ -53,6 +53,6 @@ func createProcess(cmd *cobra.Command, args []string) {
 	create.Match(args[0], fileName)
 }
 
-func supportProcess() {
+func supportCreateProcess() {
 	fmt.Printf("support : %v\n", create.GetAllType())
 }
