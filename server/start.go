@@ -9,7 +9,7 @@ var start = &server{
 	run: func() {
 		fmt.Println("server start")
 
-		execC("gin-layout")
+		execC("nohup gin-layout &> /dev/null  &")
 	},
 }
 
