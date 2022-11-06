@@ -31,3 +31,6 @@ make build
 - gin-layout-cli server status
 # ref
 - https://github.com/spf13/cobra/blob/main/user_guide.md
+
+# todo
+- create model
